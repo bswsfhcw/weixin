@@ -1,0 +1,85 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+    	$(document).ready(function(){
+    		var loc = location.href;
+    		var n1 = loc.length;//地址的总长度
+    		var n2 = loc.indexOf("=");//取得=号的位置
+    		var loginName = loc.substr(n2+1, n1-n2);//从=号后面的内容
+    		$("#hello").html($("#hello").html()+decodeURIComponent(loginName)); 
+    		ready(decodeURIComponent(loginName));
+		 });
+//        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
+};
+function ready(loginName){
+	//
+	$("#mainBack").click(function(){//退出
+		window.location.href="index.html?"+"loginName="+encodeURIComponent(loginName);
+    });
+	$("#htmlTest").click(function(){//到测试页面
+		window.location.href="test.html?"+"loginName="+encodeURIComponent(loginName);
+    });
+	$("#htmlTestPage").click(function(){//到测试页面2
+		window.location.href="testPage.html?"+"loginName="+encodeURIComponent(loginName);
+    });
+	$("#pageMain_useMethod").click(function(){
+		$("#div_callUs").css("display","none");
+		$("#div_tips").css("display","none");
+		$("#div_useMethod").css("display","block");
+    });
+	$("#pageMain_tips").click(function(){//显示提示内容
+		$("#div_useMethod").css("display","none");
+		$("#div_callUs").css("display","none");
+		$("#div_tips").css("display","block");
+    });
+	$("#pageMain_callUs").click(function(){
+		$("#div_useMethod").css("display","none");
+		$("#div_tips").css("display","none");
+		$("#div_callUs").css("display","block");
+    });
+};
+app.initialize();

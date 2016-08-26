@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/loginAndRegist.css">
+        <!-- 引入 jQuery Mobile 样式 -->
+ 		<link rel="stylesheet" href="jquerymobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<!-- 引入 jQuery 库 -->
+		<script src="jquery/jquery-1.12.3.min.js"></script>
+		<!-- 引入 jQuery Mobile 库 -->
+		<script src="jquerymobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <title>Hello World</title>
+    </head>
+    <body>
+    	<!--登录-->
+        <section id="pageLogin" data-role="page">
+		  <header data-role="header"  data-theme="b" data-position="fixed">
+		  	<h1>开启自动抢红包之旅</h1>
+		  </header>
+		  <div data-role="content" class="content">
+		    <p style="backg"><font color="#00FFFF" >进入微红包王国</font></p>
+	        <form method="post" id="loginform">
+	            <input type="text" name="usernameLogin" id="usernameLogin" value="尊敬的主人"/><br>
+	            <input type="password" name="passwordLogin" id="passwordLogin" value="密码输入提示"/><br>
+                 <fieldset data-role="controlgroup" >
+                     <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+                     <label for="checkbox-1">保持登录状态</label>
+                 </fieldset><br>
+                 
+	            <a href="#pageRegist" data-role="button" data-theme="e" id="toRegist">注册(暂不提供)</a>
+	            <a data-role="button" data-theme="b" id="toLogin">登录(免验证)</a>
+	        </form>
+		  </div>
+		  <footer data-role="footer" data-position="fixed"><h1>©bswsf 445483332@qq.com)</h1></footer>
+		</section>
+		<!--注册-->
+		<section data-role="page"  id="pageRegist">
+		  <header data-role="header"  data-theme="b"  data-type="horizontal">
+		    <div data-role="controlgroup" >
+		        <nav data-role="navbar">
+		            <ul>
+		                <li><a href="#pageRegist" class="ui-btn-active" >注册</a></li>
+		                <li><a id="registPhone">用手机号注册</a></li>
+		            </ul>
+		         </nav>
+		    </div>
+		  </header>
+		  <div data-role="content" class="content">
+		        <form method="post" id="registform">
+			        <label for="email">邮 箱</label>
+			        <input type="text" name="emailRegist" id="emailRegist"/>
+			        <label for="password">密 码</label>
+			        <input type="password" name="passwordRegist" id="passwordRegist"/>
+			        <label for="nicky">昵 称(用户名)</label>
+			        <input type="text" name="nickyRegist" id="nickyRegist"/>
+			        <fieldset data-role="controlgroup">
+			            <legend>身 份:</legend>
+			            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+			            <label for="radio-choice-1">上班族</label>
+			            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+			            <label for="radio-choice-2">大学生</label>
+			            <input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+			            <label for="radio-choice-3">其他</label>
+			        </fieldset>
+	                <a data-role="button" id="registNow" data-theme="e">立即注册</a>
+	                <a href="#pageLogin" data-role="button" id="backToLogin" data-theme="b">返回登录</a>
+		        </form>
+		  </div>
+		</section>
+        <script charset="gb2312" type="text/javascript" src="cordova.js"></script>
+        <script charset="gb2312" type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

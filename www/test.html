@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!-- 引入 jQuery Mobile 样式 -->
+ 		<link rel="stylesheet" href="jquerymobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<!-- 引入 jQuery 库 -->
+		<script src="jquery/jquery-1.12.3.min.js"></script>
+		<!-- 引入 jQuery Mobile 库 -->
+		<script src="jquerymobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <title>Hello World</title>
+        <style>
+			 #pageTest {
+			 	background-color:#CCFFCC;
+			 	overflow-y:scroll; 
+			 	overflow-x:scroll;
+			 }
+		</style>
+    </head>
+    <body>
+    	<div data-role="page" id="pageTest" >
+		  <div data-role="header" data-position="fixed">
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">简介</a>
+		    <h1 id="hello">你好，</h1>
+		    <a class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" id="mainBack">退出</a>
+		  </div>
+		   
+		  <div data-role="main" class="ui-content" id="mainContent">
+		  	<!-- 滚屏 -->
+			<h1>滚屏</h1>
+			<p>因影响其他功能测试，这里JS注释掉了</p>
+		    <p><b>提示：</b>如果要看到效果，则需要调整窗口大小使滚动条可用。</p>
+			<hr><!--分割线-->
+			<h1>插件后台测试</h1>
+			<input type="text" name="myPluginTesti" id="myPluginTesti" value="1"/>
+			<input type="text" name="myPluginTesti2" id="myPluginTesti2" value="1"/>
+			<a data-role="button" data-theme="e" id="myPluginTestb">插件测试(1成功,其他失败)</a>
+			<hr><!--分割线-->
+			<!-- 滑动 -->
+			<h1>滑动</h1>
+			<div data-role="main" class="ui-content">
+			    <p>在下面的文本或方框上滑动(左右)。</p>
+			    <p style="border:1px solid black;height:30px;width:200px;"></p>
+			    <p><span style="color:red"></span></p>
+		  	</div>
+		  	<hr><!--分割线-->
+		  	<!-- 旋转屏幕 -->
+			<h1>旋转屏幕</h1>
+		  	<h1 id="h11">旋转屏幕</h1>
+    		<p><b>注释：</b>您必须使用移动设备或者移动模拟器来查看该事件的效果。</p>  
+    		<hr><!--分割线-->
+    		<!-- 长按 -->
+			<h1>长按</h1>  
+    		<p>如果你点击我，并保持一秒以上(长按)，我将消失</p>
+    		<hr><!--分割线-->
+    		<!-- ajax -->
+			<h1>伪ajax</h1>  
+    		<p id ="ajaxTest">点击返回</p>
+    		<p id ="httpPostP"></p>
+    		<hr><!--分割线-->
+		  </div>
+		  <div data-role="footer" data-position="fixed" style="text-align:center;">
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">生日</a>
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">纪念日</a>
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">日常网站</a>
+		  </div>
+		</div>
+        <script charset="gb2312" type="text/javascript" src="cordova.js"></script>
+        <script charset="gb2312" type="text/javascript" src="js/test.js"></script>
+    </body>
+</html>

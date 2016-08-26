@@ -1,0 +1,22 @@
+#pageLogin{/* 登录页面背景 */
+	background:url(../img/login1.jpg); /*图片相对路径由css决定*/
+}
+
+#pageRegist,#registformphone{/* 注册页面背景 */
+	background-color:#CCFFCC;
+}
+p {
+    font-size: 2em;
+    font-weight: bold;
+}
+header div{
+    font-size: 1.5em;
+}
+
+#regist{
+    width:150px;
+    height:50px;
+    margin :5px;
+}
+    
+    

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!-- 引入 jQuery Mobile 样式 -->
+ 		<link rel="stylesheet" href="jquerymobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<!-- 引入 jQuery 库 -->
+		<script src="jquery/jquery-1.12.3.min.js"></script>
+		<!-- 引入 jQuery Mobile 库 -->
+		<script src="jquerymobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <title>Hello World</title>
+        <style>
+			 #pageTest {
+			 	background-color:#CCFFCC;
+			 	overflow-y:scroll; 
+			 	overflow-x:scroll;
+			 }
+		</style>
+    </head>
+    <body>
+    	<div data-role="page" id="pageTest" >
+		  <div data-role="header" data-position="fixed">
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">简介</a>
+		    <h1 id="hello">你好，</h1>
+		    <a class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" id="mainBack">退出</a>
+		  </div>
+		   
+		  <div data-role="main" class="ui-content" id="mainContent">
+    		<!-- 页面跳转 -->
+			<h1>页面跳转</h1>
+    		<a href="#pageTestTwo" data-transition="fade" >默认。淡入到下一页</a><br>
+    		<a href="#pageTestTwo" data-transition="flip" >从后向前翻转到下一页</a><br>
+    		<a href="#pageTestTwo" data-transition="flow" >抛出当前页，进入下一页</a><br>
+    		<a href="#pageTestTwo" data-transition="pop" >像弹出窗口那样转到下一页。</a><br>
+    		<a href="#pageTestTwo" data-transition="slide" >从右向左滑动到下一页。</a><br>
+    		<a href="#pageTestTwo" data-transition="slidefade" >从右向左滑动并淡入到下一页。</a><br>
+    		<a href="#pageTestTwo" data-transition="slideup" >从下到上滑动到下一页。</a><br>
+    		<a href="#pageTestTwo" data-transition="slidedown" >从上到下滑动到下一页。 </a><br>
+    		<a href="#pageTestTwo" data-transition="turn" >转向下一页。</a><br>
+    		<a href="#pageTestTwo" data-transition="none" >无过渡效果。</a>
+    		<hr><!--分割线-->
+    		<!-- 页面作为对话框 -->
+			<h1>页面作为对话框</h1>
+			<a href="#pageTestDialog" data-transition="fade" >默认。淡入弹出对话框</a><br>
+    		<a href="#pageTestDialog" data-transition="flip" >从后向前翻转弹出对话框</a><br>
+    		<a href="#pageTestDialog" data-transition="flow" >抛出当前页，弹出对话框</a><br>
+    		<a href="#pageTestDialog" data-transition="pop" >像弹出窗口那样弹出对话框。</a><br>
+    		<a href="#pageTestDialog" data-transition="slide" >从右向左滑动弹出对话框。</a><br>
+    		<a href="#pageTestDialog" data-transition="slidefade" >从右向左滑动并淡入弹出对话框页。</a><br>
+    		<a href="#pageTestDialog" data-transition="slideup" >从下到上滑动弹出对话框。</a><br>
+    		<a href="#pageTestDialog" data-transition="slidedown" >从上到下滑动弹出对话框。 </a><br>
+    		<a href="#pageTestDialog" data-transition="turn" >转向弹出对话框。</a><br>
+    		<a href="#pageTestDialog" data-transition="none" >无过渡效果弹出对话框。</a>
+    		<hr><!--分割线-->
+		  </div>
+		  <div data-role="footer" data-position="fixed" style="text-align:center;">
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">生日</a>
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">纪念日</a>
+		    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">日常网站</a>
+		  </div>
+		</div>
+		<!--  普通页面-->
+		<div data-role="page" id="pageTestTwo">
+		  <div data-role="header">
+		    <h1>欢迎来到我的主页</h1>
+		  </div>
+		  <div data-role="main" class="ui-content">
+		    <a href="#pageTest" >跳转到第一个页面</a>
+		  </div>
+		  <div data-role="footer">
+		    <h1>底部文本</h1>
+		  </div>
+		</div> 
+		<!--  对话框-->
+		<div data-role="page" data-dialog="true" id="pageTestDialog">
+		  <div data-role="header">
+		    <h1>我是一个对话框！</h1>
+		  </div>
+		  <div data-role="main" class="ui-content">
+		    <p>对话框与普通页面不同，它显示在当期页面上, 但又不会填充完整的页面，顶部图标 "X" 用于关闭对话框。</p>
+		    <a href="#pageTest">跳转到第一个页面</a>
+		  </div>
+		
+		  <div data-role="footer">
+		    <h1>对话框底部文本</h1>
+		  </div>
+		</div> 
+		<script charset="gb2312" type="text/javascript" src="cordova.js"></script>
+        <script charset="gb2312" type="text/javascript" src="js/testPage.js"></script>
+    </body>
+</html>
